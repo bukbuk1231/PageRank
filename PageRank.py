@@ -2,7 +2,7 @@ import PageRankPreProcess
 import math
 
 def pageRank():
-    outbounds, inbounds = PageRankPreProcess.calculate_all_pages('testcsv2')
+    outbounds, inbounds = PageRankPreProcess.calculate_all_pages('outlink_maps')
 
     init_rank = 1 / len(outbounds)
     ranks = {node : init_rank for node in outbounds.keys()}

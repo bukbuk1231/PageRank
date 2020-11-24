@@ -48,7 +48,7 @@ def calculate_all_pages(folder_name):
             inbound[file_name] = []
 
         data = pd.read_csv(folder_name + '/' + file)
-        data_dict = data.to_dict()['link_to_urls'][0][1:-1]
+        data_dict = data.to_dict()['outlinks'][0][1:-1]
         data_list = data_dict.split(',')
 
         # convert strings into ints
@@ -65,6 +65,6 @@ def calculate_all_pages(folder_name):
             old_list.append(file_name)
             inbound[num] = old_list
 
-    print(outbound)
-    print(inbound)
+    # print(outbound)
+    # print(inbound)
     return (outbound, inbound)
