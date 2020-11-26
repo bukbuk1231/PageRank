@@ -18,7 +18,11 @@ def pageRank():
             rank = rank * (1 - 0.2) + (0.2 / len(outbounds))
             next_ranks[node] = rank
 
-        if ranks == next_ranks:
+        similar = True
+        for key in ranks.keys():
+            similar &= math.isclose(ranks[key], next_ranks[key], rel_tol=1e-15)
+
+        if similar:
             break
 
         ranks = next_ranks
